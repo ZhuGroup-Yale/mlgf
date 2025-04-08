@@ -1,0 +1,94 @@
+{
+    "exclude_core": true,
+    "feat_list_ii": [
+        "dm_saiao",
+        "fock_saiao",
+        "hcore+vj_saiao",
+        "vk_saiao",
+        "vxc_saiao",
+        "atomic_charge_saiao",
+        "boys_saiao",
+        "gf_dyn",
+        "hyb_dyn"
+    ],
+    "feat_list_ij": [
+        "dm_saiao",
+        "fock_saiao",
+        "hcore_saiao",
+        "vj_saiao",
+        "vk_saiao",
+        "vxc_saiao",
+        "gf_dyn",
+        "hyb_dyn_off"
+    ],
+    "cat_feat_list_ii": [
+        "cat_orbtype_saiao",
+        "cat_orbtype_principal",
+        "cat_orbtype_angular"
+    ],
+    "ncat_ii_list": [
+        3,
+        6,
+        6
+    ],
+    "edge_cutoff": 0.0001,
+    "edge_cutoff_features": [
+        "vj_saiao",
+        "vk_saiao"
+    ],
+    "target": "sigma_saiao",
+    "train_config": {
+        "epochs": 300,
+        "learning_rate": 0.005,
+        "weight_decay": 0.0,
+        "optimizer": "Adam",
+        "dropout": 0.0,
+        "batch_size": 2,
+        "shuffle": true,
+        "num_workers": 0,
+        "cosine_t0": 100,
+        "cos_range": [
+            100,
+            10000
+        ]
+    },
+    "train_files": [
+        "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_chk/water.chk",
+        "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_chk/methane.chk",
+        "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_chk/ethane.chk",
+        "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_chk/ammonia.chk"
+    ],
+    "ensemble_n": 1,
+    "model_alias": "GNN",
+    "model_kwargs": {
+        "node_nstatic_layer": 36,
+        "node_ndynamical_layer": 100,
+        "node_ncat_layer": 30,
+        "edge_nstatic_layer": 36,
+        "edge_ndynamical_layer": 100,
+        "mpl_channels": 48,
+        "message_passing_updates": 2,
+        "nstatic_ij": 12,
+        "nstatic_ii": 7,
+        "ndynamical_ij": 48,
+        "ncat_ii": 15,
+        "scale_y": 0.001,
+        "n_out": 60
+    },
+    "loss_kwargs": {
+        "frontier_weight": 0.1,
+        "smoothness_weight": 0.0,
+        "gradient_weight": 0.1,
+        "frontier_range": [
+            10,
+            10
+        ]
+    },
+    "in_memory_data": false,
+    "dset_store_dir": "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/dset_tmp_dir",
+    "torch_data_root": "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/torch_data_root",
+    "gnn_orch_file_to_copy": "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_gnn_orchestrator.joblib",
+    "gnn_orch_file": "/gpfs/gibbs/project/zhu/scv22/mlgf/examples/workflow_gnn/test_gnn_orchestrator.joblib",
+    "nstatic_ij": 6,
+    "ndynamical_ij": 24
+}

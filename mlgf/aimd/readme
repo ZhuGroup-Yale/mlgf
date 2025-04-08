@@ -1,0 +1,5 @@
+Changes made to original CP2K scripts
+
+1. Use MPI to accelerate CP2K calculations, i.e., using 24 MPI processes, each process with 1 CPU core
+2. In the input, change box size to 10x10x10
+3. In the input, change basis set 6-31G* to DZVP-GTH and change "ALL_BASIS_SETS" to "GTH_BASIS_SETS"

@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --partition=pi_zhu
+#SBATCH --out=aimd_test.out
+#SBATCH --error="slurm-%j.out"
+#SBATCH --time=02:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=30G
+
+module purge
+module load CP2K
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+mpirun --bind-to none cp2k.popt _aimd_input.inp > _aimd_input.out
+
+

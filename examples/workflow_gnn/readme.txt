@@ -1,0 +1,1 @@
+The Jupyter Notebook will run the entire MLGF workflow, training a GNN as the self-energy solver. Run the cells from top to bottom - each step is described in markdown.
